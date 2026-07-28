@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual de Padronização | Chef Gabriel</title>
+  <meta name="theme-color" content="#2b1a11" />
+  <meta
+    name="description"
+    content="Manual oficial de padronização com receitas, ingredientes, montagem e processo produtivo."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=Dancing+Script:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <!-- BACKGROUND -->
+  <div class="background-blur" aria-hidden="true"></div>
+  <div class="background-overlay" aria-hidden="true"></div>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <button
+      class="hamburger-btn"
+      id="menuBtn"
+      onclick="toggleMenu()"
+      aria-label="Abrir menu de receitas"
+      aria-controls="sidebarMenu"
+      aria-expanded="false"
+      type="button"
+    >
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div class="brand">
+      <div class="brand-icon">👨‍🍳</div>
+      <div class="brand-text">
+        <h2>Chef Gabriel</h2>
+        <span>Manual de Padronização</span>
+      </div>
+    </div>
+
+    <button
+      class="search-btn"
+      id="searchButton"
+      aria-label="Pesquisar receitas"
+      aria-controls="searchModal"
+      aria-expanded="false"
+      type="button"
+    >
+      🔍
+    </button>
+  </header>
+
+  <!-- SIDEBAR -->
+  <nav
+    class="mobile-sidebar"
+    id="sidebarMenu"
+    aria-label="Navegação de receitas"
+  >
+    <div class="sidebar-header">Receitas</div>
+
+    <div class="sidebar-search">
+      <label for="recipeSearch" class="sr-only">Pesquisar receita na barra lateral</label>
+      <input
+        type="text"
+        placeholder="Pesquisar receita..."
+        id="recipeSearch"
+        autocomplete="off"
+      />
+    </div>
+
+    <ul class="sidebar-links" id="sidebarLinksList"></ul>
+  </nav>
+
+  <div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+    onclick="toggleMenu()"
+    aria-hidden="true"
+  ></div>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero-badge">MANUAL OFICIAL</div>
+
+    <h1 id="heroTitle">Manual de Padronização</h1>
+
+    <p>
+      Todas as receitas padronizadas da produção.
+      Ingredientes, montagem e processo produtivo.
+    </p>
+  </section>
+
+  <!-- ÁREA DO LIVRO -->
+  <main class="book-stage">
+    <div class="book-shadow" aria-hidden="true"></div>
+    <div class="book-glow" aria-hidden="true"></div>
+
+    <section class="book-container" aria-label="Livro de receitas">
+      <div class="book-inner" id="bookInner">
+        <!-- As páginas serão criadas pelo JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ DE NAVEGAÇÃO -->
+  <footer class="navigation-controls" aria-label="Navegação de páginas">
+    <button
+      class="nav-btn"
+      id="prevBtn"
+      onclick="changeSheet(-1)"
+      disabled
+      type="button"
+    >
+      ◀ Anterior
+    </button>
+
+    <div
+      class="page-indicator"
+      id="pageIndicator"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      Carregando...
+    </div>
+
+    <button
+      class="nav-btn"
+      id="nextBtn"
+      onclick="changeSheet(1)"
+      type="button"
+    >
+      Próxima ▶
+    </button>
+  </footer>
+
+  <!-- MODAL PESQUISA -->
+  <div
+    class="search-modal"
+    id="searchModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="searchModalTitle"
+    hidden
+  >
+    <div class="search-box">
+      <div class="search-header">
+        <h3 id="searchModalTitle">Pesquisar Receita</h3>
+        <button
+          class="close-search"
+          onclick="closeSearch()"
+          aria-label="Fechar pesquisa"
+          type="button"
+        >
+          ✕
+        </button>
+      </div>
+
+      <label for="searchInput" class="sr-only">Digite o nome da receita</label>
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Digite o nome da receita..."
+        autocomplete="off"
+      />
+
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+  <footer class="site-footer">
+  <p>
+    © Todos os direitos reservados |
+    <a
+      href="https://wa.me/5548991998998?text=Ol%C3%A1%2C%20gostaria%20de%20desenvolver%20meu%20site.%20Hello%2C%20I%20would%20like%20to%20develop%20my%20website."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Falar com VN Systems no WhatsApp"
+    >
+      Desenvolvido por VN Systems
+    </a>
+  </p>
+</footer>
+
+  <script src="receitas.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
